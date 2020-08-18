@@ -4,6 +4,7 @@ export type AlexaPublishing = {
   forExport: boolean;
   hasAds: boolean;
   summary: string;
+  invocationName: string;
   locales: [Locale, ...Locale[]]; // always at least one locale
   category: string;
   personal: boolean;
@@ -16,7 +17,6 @@ export type AlexaPublishing = {
   forChildren: boolean;
   instructions: string;
   privacyPolicy: string;
-  invocationName: string;
   termsAndConditions: string;
   updatesDescription?: string;
 };
