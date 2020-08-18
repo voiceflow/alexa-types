@@ -1,5 +1,7 @@
 import { SpeakNode, SpeakStep } from './speak';
 
-export type Steps = SpeakStep;
+export * from './speak';
 
-export type ProgramNodes = SpeakNode;
+export type AlexaStep = SpeakStep;
+
+export type AlexaNode = SpeakNode;

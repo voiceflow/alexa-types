@@ -1,5 +1,5 @@
 import { Program } from '@voiceflow/api-sdk';
 
-import { ProgramNodes } from './nodes';
+import { AlexaNode } from './nodes';
 
-export type AlexaProgram = Program<ProgramNodes>;
+export type AlexaProgram = Program<AlexaNode>;

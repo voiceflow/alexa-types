@@ -7,12 +7,14 @@ export enum Repeat {
 }
 
 export type AccountLinking = {
-  scopes: string[] | string[][];
-  domains: string[] | string[][];
-  clientSecret?: string;
-  accessTokenUrl?: string;
-  authorizationUrl?: string;
-  defaultTokenExpirationInSeconds?: string;
+  scopes: string[];
+  domains: string[];
+  clientId: string;
+  clientSecret: string;
+  accessTokenUrl: string;
+  authorizationUrl: string;
+  defaultTokenExpirationInSeconds: number;
+  accessTokenScheme: string;
 };
 
 export type AlexaSettings = {
@@ -29,8 +31,26 @@ export type AlexaSettings = {
 
 export const defaultAccountLinking = (accountLinking?: null | Partial<AccountLinking>): null | AccountLinking => {
   if (!accountLinking) return null;
-  const { scopes = [], domains = [], clientSecret, accessTokenUrl, authorizationUrl, defaultTokenExpirationInSeconds } = accountLinking;
-  return { scopes, domains, clientSecret, accessTokenUrl, authorizationUrl, defaultTokenExpirationInSeconds };
+  const {
+    scopes = [],
+    domains = [],
+    clientId = '',
+    clientSecret = '',
+    accessTokenUrl = '',
+    authorizationUrl = '',
+    defaultTokenExpirationInSeconds = 3600,
+    accessTokenScheme = 'HTTP_BASIC',
+  } = accountLinking;
+  return {
+    scopes,
+    domains,
+    clientId,
+    clientSecret,
+    accessTokenUrl,
+    authorizationUrl,
+    defaultTokenExpirationInSeconds,
+    accessTokenScheme,
+  };
 };
 
 export const defaultPrompt = (prompt?: Prompt | null): null | Prompt => {

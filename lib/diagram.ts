@@ -1,5 +1,5 @@
 import { Diagram } from '@voiceflow/api-sdk';
 
-import { Steps } from './nodes';
+import { AlexaStep } from './nodes';
 
-export type AlexaDiagram = Diagram<Steps>;
+export type AlexaDiagram = Diagram<AlexaStep>;
