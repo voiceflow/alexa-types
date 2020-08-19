@@ -1,17 +1,15 @@
 import { Prompt } from '../types';
 import { DefaultNode, DefaultStep, NodeType } from './types';
 
-declare namespace Nodes.Speak {
-  export type StepData = {
-    randomize: boolean;
-    dialogs: Prompt[];
-  };
+export type StepData = {
+  randomize: boolean;
+  dialogs: Prompt[];
+};
 
-  export type NodeData = {
-    prompt?: string;
-    nextId?: string | null;
-  } & ({ speak: string } | { random_speak: string[] });
+export type NodeData = {
+  prompt?: string;
+  nextId?: string | null;
+} & ({ speak: string } | { random_speak: string[] });
 
-  export type Step = DefaultStep<NodeType.SPEAK, StepData>;
-  export type Node = DefaultNode<NodeType.SPEAK, NodeData>;
-}
+export type Step = DefaultStep<NodeType.SPEAK, StepData>;
+export type Node = DefaultNode<NodeType.SPEAK, NodeData>;
