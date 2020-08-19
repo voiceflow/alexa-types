@@ -76,9 +76,6 @@
     "url": "git+https://github.com/voiceflow/alexa-types.git"
   },
   "scripts": {
-    "build": "yarn clean && ttsc --project ./tsconfig.build.json",
-    "clean": "rimraf build",
-    "lint": "eslint \"*.{js,ts}\"",
-    "prepare": "yarn build"
+    "lint": "eslint \"*.{js,ts}\""
   }
 }
