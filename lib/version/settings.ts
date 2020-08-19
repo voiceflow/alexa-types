@@ -17,16 +17,28 @@ export type AccountLinking = {
   accessTokenScheme: string;
 };
 
+export enum Session {
+  RESTART = 'restart',
+  RESUME = 'resume',
+}
+
+export type RestartSession = {
+  type: Session.RESTART;
+};
+
+export type ResumeSession = {
+  type: Session.RESUME;
+  resume: null | Prompt;
+  follow: null | Prompt;
+};
+
 export type AlexaSettings = {
   events: null | string;
   accountLinking: null | AccountLinking;
   customInterface: boolean;
-  resume: null | {
-    prompt: null | Prompt;
-    followPrompt: null | Prompt;
-  };
+  session: RestartSession | ResumeSession;
   repeat: Repeat;
-  errorPrompt: null | Prompt;
+  error: null | Prompt;
 };
 
 export const defaultAccountLinking = (accountLinking?: null | Partial<AccountLinking>): null | AccountLinking => {
@@ -64,20 +76,15 @@ export const defaultPrompt = (prompt?: Prompt | null): null | Prompt => {
 export const defaultAlexaSettings = ({
   events = null,
   customInterface = false,
-  resume,
+  session = { type: Session.RESTART },
   repeat = Repeat.ALL,
   accountLinking,
-  errorPrompt,
+  error,
 }: Partial<AlexaSettings> = {}): AlexaSettings => ({
   events,
   customInterface,
-  resume: resume
-    ? {
-        prompt: defaultPrompt(resume.prompt),
-        followPrompt: defaultPrompt(resume.followPrompt),
-      }
-    : null,
+  session,
   repeat,
   accountLinking: defaultAccountLinking(accountLinking),
-  errorPrompt: defaultPrompt(errorPrompt),
+  error: defaultPrompt(error),
 });
