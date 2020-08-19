@@ -78,7 +78,7 @@
   "scripts": {
     "build": "yarn clean && ttsc --project ./tsconfig.build.json",
     "clean": "rimraf build",
-    "lint": "eslint \"src/**/*.{js,ts}\"",
+    "lint": "eslint \"*.{js,ts}\"",
     "prepare": "yarn build"
   }
 }

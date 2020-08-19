@@ -5,27 +5,25 @@ orbs:
   vfcommon: voiceflow/common@0.0.13
 
 jobs:
-  build-and-test:
+  lint:
     executor: vfcommon/default-executor
     steps:
       - checkout
       - vfcommon/install_node_modules
       - run:
-          name: 'Build package'
+          name: 'Linting Check'
           command: |
-            yarn build
-      - codecov/upload:
-          file: nyc_coverage/lcov.info
+            yarn lint
 
 workflows:
   test-and-release:
     jobs:
-      - build-and-test:
+      - lint:
           context: dev-test
       - vfcommon/release:
           context: dev-test
           requires:
-            - build-and-test
+            - lint
           filters:
             branches:
               only: master
