@@ -13,3 +13,11 @@ export type AlexaProjectMemberData = {
   selectedVendor: null | VendorID;
   vendors: Vendor[];
 };
+
+export const defaultAlexaProjectMemberData = ({
+  selectedVendor = null,
+  vendors = [],
+}: Partial<AlexaProjectMemberData> = {}): AlexaProjectMemberData => ({
+  selectedVendor,
+  vendors,
+});
