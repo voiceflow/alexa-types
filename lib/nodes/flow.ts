@@ -1,17 +1,17 @@
-import { Node, Step } from '@voiceflow/api-sdk';
+import { DefaultNode, DefaultStep, NodeType } from './types';
 
-import { NodeType } from './types';
+declare namespace Nodes.Flow {
+  export type StepData = { diagramID: string };
 
-export type FlowStep = Step<NodeType.FLOW, { diagramID: string }>;
-
-export type FlowNode = Node<
-  NodeType.FLOW,
-  {
+  export type NodeData = {
     diagram_id: string;
     variable_map?: {
       inputs?: [string, string][];
       outputs?: [string, string][];
     };
     nextId?: string | null;
-  }
->;
+  };
+
+  export type Step = DefaultStep<NodeType.FLOW, StepData>;
+  export type Node = DefaultNode<NodeType.FLOW, NodeData>;
+}
