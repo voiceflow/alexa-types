@@ -21,7 +21,7 @@ export type StepData = {
   name: string;
   else: ElseData;
   choices: Choice[];
-  reprompt: Prompt;
+  reprompt: Prompt | null;
 };
 
 export type Interaction = {
