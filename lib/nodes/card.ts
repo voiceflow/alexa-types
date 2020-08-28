@@ -21,22 +21,22 @@ export enum AlexaPermissions {
   GRANT_PHONE_NUMBER = 'alexa::profile:mobile_number:read',
 }
 
-type BaseCardData = {
-  cardType: CardType;
+type BaseCardData<T extends CardType> = {
+  cardType: T;
 };
 
-type AccountLinkCardData = BaseCardData;
+type AccountLinkCardData = BaseCardData<CardType.LINK>;
 
-type AskForPermissionsConsentCardData = BaseCardData & {
+type AskForPermissionsConsentCardData = BaseCardData<CardType.PERMISSIONS> & {
   permissions: Array<AlexaPermissions>;
 };
 
-type SimpleCardData = BaseCardData & {
+type SimpleCardData<T extends CardType = CardType.SIMPLE> = BaseCardData<T> & {
   title: string;
   text: string;
 };
 
-type StandardCardData = SimpleCardData & {
+type StandardCardData = SimpleCardData<CardType.STANDARD> & {
   largeImageUrl: null | string;
   smallImageUrl: null | string;
 };
@@ -56,5 +56,5 @@ export type NodeData = {
   nextId?: string;
 };
 
-export type Step = DefaultStep<NodeType.START, StepData>;
-export type Node = DefaultNode<NodeType.START, NodeData>;
+export type Step = DefaultStep<NodeType.CARD, StepData>;
+export type Node = DefaultNode<NodeType.CARD, NodeData>;
