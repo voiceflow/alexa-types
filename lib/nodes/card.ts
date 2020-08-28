@@ -14,11 +14,12 @@ export enum CardType {
   PERMISSIONS = 'AskForPermissionsConsent',
 }
 
-export type AlexaPermissions =
-  | 'alexa::profile:name:read'
-  | 'alexa::profile:given_name:read'
-  | 'alexa::profile:email:read'
-  | 'alexa::profile:mobile_number:read';
+export enum AlexaPermissions {
+  GRANT_FULL_NAME = 'alexa::profile:name:read',
+  GRANT_FIRST_NAME = 'alexa::profile:given_name:read',
+  GRANT_EMAIL = 'alexa::profile:email:read',
+  GRANT_PHONE_NUMBER = 'alexa::profile:mobile_number:read',
+}
 
 type BaseCardData<T extends CardType> = {
   cardType: T;
