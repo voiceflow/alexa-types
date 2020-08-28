@@ -18,7 +18,7 @@ export type GenericExpression<T extends ExpressionType, V> = {
 
 export type ExpressionTuple = [Expression, Expression];
 
-// can't use generic here due tu recursion type issue
+// can't use generic here due to recursion type issue
 export type NotExpression = { type: ExpressionType.NOT; value: Expression; depth: number };
 export type OrExpression = GenericExpression<ExpressionType.OR, ExpressionTuple>;
 export type AndExpression = GenericExpression<ExpressionType.AND, ExpressionTuple>;
