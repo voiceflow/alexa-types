@@ -11,6 +11,16 @@ import * as Start from './start';
 
 export * from './types';
 
-export type AlexaSteps = Set.Step | Capture.Step | Flow.Step | Start.Step | Speak.Step | Interaction.Step | Code.Step | Intent.Step | Card.Step;
+export type AlexaSteps =
+  | Set.Step
+  | Capture.Step
+  | Flow.Step
+  | Start.Step
+  | Speak.Step
+  | Interaction.Step
+  | Code.Step
+  | Intent.Step
+  | Card.Step
+  | Prompt.Step;
 
 export type AlexaNodes = Set.Node | Capture.Node | Flow.Node | Start.Node | Speak.Node | Interaction.Node | Code.Node | Intent.Node | Card.Node;
