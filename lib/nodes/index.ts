@@ -4,6 +4,7 @@ import * as Code from './code';
 import * as Flow from './flow';
 import * as Intent from './intent';
 import * as Interaction from './interaction';
+import * as Prompt from './prompt';
 import * as Set from './set';
 import * as Speak from './speak';
 import * as Start from './start';
