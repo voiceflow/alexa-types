@@ -1,11 +1,11 @@
-import { DefaultNode, DefaultStep, NodeType } from './types';
+import { DefaultNode, DefaultStep, Expression, NodeType } from './types';
 
 export type StepData = {
-  expressions: string[];
+  expressions: Expression[];
 };
 
 export type NodeData = {
-  expressions: string[];
+  expressions: (string | number)[];
   nextIds: string[];
   elseId?: string;
 };
