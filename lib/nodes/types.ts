@@ -32,6 +32,7 @@ export enum NodeType {
   // logic
   SET = 'set',
   IF = 'if',
+
   CAPTURE = 'capture',
   RANDOM = 'random',
 
