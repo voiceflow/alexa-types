@@ -10,27 +10,30 @@ export enum ReminderClientType {
   SCHEDULED = 'scheduled',
 }
 
-export type StepData<T> = {
-  reminder: {
-    name: string;
-    type: T;
-    text: string;
-    time: {
-      h: string;
-      m: string;
-      s: string;
-    };
-    date: string;
-    timezone: string;
-    recurrence?: { byDay?: string; freq: string };
-    recurrenceBool: boolean;
+type Reminder = {
+  name: string;
+  type: ReminderType;
+  text: string;
+
+  time: {
+    h: string;
+    m: string;
+    s: string;
   };
+  date: string;
+  timezone: string;
+  recurrence?: { byDay?: string; freq: string };
+  recurrenceBool: boolean;
+};
+
+export type StepData<T> = {
+  reminder: T;
 };
 
 export type NodeData = {
   fail_id?: string;
   success_id?: string;
-} & StepData<ReminderType>;
+} & StepData<Omit<Reminder, 'recurrenceBool' | 'name'>>;
 
-export type Step = DefaultStep<NodeType.REMINDER, StepData<ReminderType>>;
+export type Step = DefaultStep<NodeType.REMINDER, StepData<Reminder>>;
 export type Node = DefaultNode<NodeType.REMINDER, NodeData>;
