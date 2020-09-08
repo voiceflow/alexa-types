@@ -15,7 +15,6 @@ export type StepData = {
     name: string;
     type: ReminderType;
     text: string;
-
     time: {
       h: string;
       m: string;
@@ -32,7 +31,6 @@ export type NodeData = {
   reminder: {
     type: ReminderType;
     text: string;
-
     time: {
       h: string;
       m: string;
@@ -42,7 +40,6 @@ export type NodeData = {
     timezone: string;
     recurrence?: { startDateTime?: string; endDateTime?: string; recurrenceRules: string[] };
   };
-
   fail_id?: string;
   success_id?: string;
 };
