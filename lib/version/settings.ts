@@ -1,9 +1,16 @@
+import { v1 } from 'ask-smapi-model';
+
 import { Prompt, Voice } from '../types';
 
 export enum RepeatType {
   OFF = 'OFF',
-  DIALOG = 'DIALOG',
   ALL = 'ALL',
+  DIALOG = 'DIALOG',
+}
+
+export enum AccountLinkingAccessTokenScheme {
+  HTTP_BASIC = 'HTTP_BASIC',
+  REQUEST_BODY_CREDENTIALS = 'REQUEST_BODY_CREDENTIALS',
 }
 
 export type AccountLinking = {
@@ -13,13 +20,13 @@ export type AccountLinking = {
   clientSecret: string;
   accessTokenUrl: string;
   authorizationUrl: string;
+  accessTokenScheme: v1.skill.accountLinking.AccessTokenSchemeType;
   defaultTokenExpirationInSeconds: number;
-  accessTokenScheme: string;
 };
 
 export enum SessionType {
-  RESTART = 'restart',
   RESUME = 'resume',
+  RESTART = 'restart',
 }
 
 export type RestartSession = {
@@ -33,17 +40,20 @@ export type ResumeSession = {
 };
 
 export type AlexaSettings = {
+  error: null | Prompt;
+  repeat: RepeatType;
   events: null | string;
+  session: RestartSession | ResumeSession;
+  permissions: string[];
   accountLinking: null | AccountLinking;
   customInterface: boolean;
-  session: RestartSession | ResumeSession;
-  repeat: RepeatType;
-  error: null | Prompt;
-  permissions: string[];
 };
 
 export const defaultAccountLinking = (accountLinking?: null | Partial<AccountLinking>): null | AccountLinking => {
-  if (!accountLinking) return null;
+  if (!accountLinking) {
+    return null;
+  }
+
   const {
     scopes = [],
     domains = [],
@@ -51,9 +61,10 @@ export const defaultAccountLinking = (accountLinking?: null | Partial<AccountLin
     clientSecret = '',
     accessTokenUrl = '',
     authorizationUrl = '',
+    accessTokenScheme = AccountLinkingAccessTokenScheme.REQUEST_BODY_CREDENTIALS,
     defaultTokenExpirationInSeconds = 3600,
-    accessTokenScheme = 'HTTP_BASIC',
   } = accountLinking;
+
   return {
     scopes,
     domains,
@@ -61,8 +72,8 @@ export const defaultAccountLinking = (accountLinking?: null | Partial<AccountLin
     clientSecret,
     accessTokenUrl,
     authorizationUrl,
-    defaultTokenExpirationInSeconds,
     accessTokenScheme,
+    defaultTokenExpirationInSeconds,
   };
 };
 
