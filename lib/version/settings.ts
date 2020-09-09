@@ -8,12 +8,18 @@ export enum RepeatType {
   DIALOG = 'DIALOG',
 }
 
+export enum AccountLinkingType {
+  IMPLICIT = 'IMPLICIT',
+  AUTH_CODE = 'AUTH_CODE',
+}
+
 export enum AccountLinkingAccessTokenScheme {
   HTTP_BASIC = 'HTTP_BASIC',
   REQUEST_BODY_CREDENTIALS = 'REQUEST_BODY_CREDENTIALS',
 }
 
 export type AccountLinking = {
+  type: v1.skill.accountLinking.AccountLinkingType;
   scopes: string[];
   domains: string[];
   clientId: string;
@@ -55,17 +61,19 @@ export const defaultAccountLinking = (accountLinking?: null | Partial<AccountLin
   }
 
   const {
+    type = AccountLinkingType.AUTH_CODE,
     scopes = [],
     domains = [],
     clientId = '',
     clientSecret = '',
     accessTokenUrl = '',
     authorizationUrl = '',
-    accessTokenScheme = AccountLinkingAccessTokenScheme.REQUEST_BODY_CREDENTIALS,
+    accessTokenScheme = AccountLinkingAccessTokenScheme.HTTP_BASIC,
     defaultTokenExpirationInSeconds = 3600,
   } = accountLinking;
 
   return {
+    type,
     scopes,
     domains,
     clientId,
