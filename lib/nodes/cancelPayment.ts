@@ -5,11 +5,10 @@ export type StepData = {
 };
 
 export type NodeData = {
-  product_id?: string;
-  cancel_product_id?: string;
+  cancel_product_id: string;
   fail_id?: string;
   success_id?: string;
 };
 
-export type Step = DefaultStep<NodeType.PAYMENT, StepData>;
-export type Node = DefaultNode<NodeType.PAYMENT, NodeData>;
+export type Step = DefaultStep<NodeType.CANCEL_PAYMENT, StepData>;
+export type Node = DefaultNode<NodeType.CANCEL_PAYMENT, NodeData>;
