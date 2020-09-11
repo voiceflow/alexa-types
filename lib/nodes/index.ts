@@ -1,5 +1,6 @@
 import * as AccountLinking from './accountLinking';
 import * as Api from './api';
+import * as CancelPayment from './cancelPayment';
 import * as Capture from './capture';
 import * as Card from './card';
 import * as Code from './code';
@@ -11,7 +12,6 @@ import * as If from './if';
 import * as Integration from './integration';
 import * as Intent from './intent';
 import * as Interaction from './interaction';
-import * as Payment from './payment';
 import * as Permission from './permission';
 import * as Prompt from './prompt';
 import * as Random from './random';
@@ -44,7 +44,7 @@ export type AlexaSteps =
   | If.Step
   | Reminder.Step
   | Directive.Step
-  | Payment.Step;
+  | CancelPayment.Step;
 
 export type AlexaNodes =
   | Set.Node
@@ -63,6 +63,6 @@ export type AlexaNodes =
   | If.Node
   | Reminder.Node
   | Directive.Node
-  | Payment.Node;
+  | CancelPayment.Node;
 
 export type AlexaCommands = Intent.Command;
