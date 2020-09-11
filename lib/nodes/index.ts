@@ -11,6 +11,7 @@ import * as If from './if';
 import * as Integration from './integration';
 import * as Intent from './intent';
 import * as Interaction from './interaction';
+import * as Payment from './payment';
 import * as Permission from './permission';
 import * as Prompt from './prompt';
 import * as Random from './random';
@@ -42,7 +43,8 @@ export type AlexaSteps =
   | GoogleSheets.Step
   | If.Step
   | Reminder.Step
-  | Directive.Step;
+  | Directive.Step
+  | Payment.Step;
 
 export type AlexaNodes =
   | Set.Node
@@ -60,6 +62,7 @@ export type AlexaNodes =
   | Random.Node
   | If.Node
   | Reminder.Node
-  | Directive.Node;
+  | Directive.Node
+  | Payment.Node;
 
 export type AlexaCommands = Intent.Command;
