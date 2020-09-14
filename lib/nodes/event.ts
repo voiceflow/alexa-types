@@ -11,7 +11,7 @@ export type StepData = {
 };
 
 export type NodeData = {
-  next?: string;
+  next?: string | null;
   event: string;
   mappings: Mapping[];
 };
