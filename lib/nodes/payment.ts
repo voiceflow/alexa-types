@@ -6,7 +6,7 @@ export type StepData = {
 
 export type NodeData = {
   fail_id?: string;
-  product_id: string;
+  product_id: string | null;
   success_id?: string;
 };
 
