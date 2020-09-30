@@ -5,6 +5,8 @@ export type StepData = {
   diagramID: string | null;
   mappings: { variable: string; slot: string }[];
   name: string;
+  // manually define ports to allow command step processing
+  ports: { type: string; target: string | null }[];
 };
 
 export type Step = DefaultStep<NodeType.COMMAND, StepData>;
