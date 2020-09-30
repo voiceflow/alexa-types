@@ -77,9 +77,8 @@ export type AlexaNodes =
   | Stream.Node
   | Directive.Node
   | UserInfo.Node
-  | Event.Node
   | Payment.Node
   | CancelPayment.Node
   | Display.Node;
 
-export type AlexaCommands = Intent.Command | Command.Command;
+export type AlexaCommands = Intent.Command | Command.Command | Event.Command;
