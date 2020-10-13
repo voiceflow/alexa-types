@@ -705,7 +705,7 @@
     semver "^6.3.0"
     tsutils "^3.17.1"
 
-"@voiceflow/api-sdk@1.10.1":
+"@voiceflow/api-sdk@1.10.1", "@voiceflow/api-sdk@^1.9.2":
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/@voiceflow/api-sdk/-/api-sdk-1.10.1.tgz#c9177eb866a003b786453056cdb11439d820f076"
   integrity sha512-PEpf0dybn5YCc9Sp2JrYGW5sYGe3dxGJ7QPcTdFUp0Hz/D4ihsisLKEU5LhcRFXQU62o+PlxAQt/u90/QDHHmA==
@@ -748,6 +748,13 @@
     eslint-plugin-simple-import-sort "^3.1.1"
     eslint-plugin-sonarjs "^0.4.0"
     eslint-plugin-xss "^0.1.9"
+
+"@voiceflow/general-types@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@voiceflow/general-types/-/general-types-1.0.2.tgz#27dbadd796987e5a96dc1a3d366f669366ec4ead"
+  integrity sha512-RA7pL9NuWnIvgy3Yzn8dCa/WIK1LOq6ItDQUAMSHB2Olm2xCPRrgnTGqIWyeryG6L2pIEeipolZePj7HqDYVzQ==
+  dependencies:
+    "@voiceflow/api-sdk" "^1.9.2"
 
 "@voiceflow/git-branch-check@^1.0.6":
   version "1.0.6"
@@ -2674,6 +2681,13 @@ eslint-plugin-prettier@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.1.tgz#507b8562410d02a03f0ddc949c616f877852f2ba"
   integrity sha512-A+TZuHZ0KU0cnn56/9mfR7/KjUJ9QNVXUhwvRFSR7PGPe0zQR6PTkmyqg1AtUUEOzTqeRsUwyKFh0oVZKVCrtA==
+  dependencies:
+    prettier-linter-helpers "^1.0.0"
+
+eslint-plugin-prettier@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.4.tgz#168ab43154e2ea57db992a2cd097c828171f75c2"
+  integrity sha512-jZDa8z76klRqo+TdGDTFJSavwbnWK2ZpqGKNZ+VvweMW516pDUMmQ2koXvxEE4JhzNvTv+radye/bWGBmA6jmg==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
