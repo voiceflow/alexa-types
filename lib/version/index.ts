@@ -13,7 +13,7 @@ export enum AlexaStage {
   REVIEW = 'REVIEW',
 }
 
-export type AlexaVersionData = GeneralVersionData & {
+export type AlexaVersionData = Omit<GeneralVersionData, 'settings' | 'publishing'> & {
   settings: AlexaSettings;
   publishing: AlexaPublishing;
 
