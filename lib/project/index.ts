@@ -1,5 +1,4 @@
 import { Project } from '@voiceflow/api-sdk';
-import { Locale } from '@voiceflow/general-types';
 
 import { AlexaProjectMemberData } from './member';
 import { AlexaProduct } from './product';
@@ -11,7 +10,7 @@ export type AlexaProjectData = {
   products: Record<string, AlexaProduct>;
 };
 
-export type AlexaProject = Project<AlexaProjectData, AlexaProjectMemberData, Locale> & {
+export type AlexaProject = Project<AlexaProjectData, AlexaProjectMemberData> & {
   platform: 'alexa';
 };
 
