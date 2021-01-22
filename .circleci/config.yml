@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   vfcommon: voiceflow/common@0.0.54
+  sonarcloud: sonarsource/sonarcloud@1.0.2
 
 jobs:
   build-and-test:
@@ -10,7 +11,9 @@ jobs:
       - checkout
       - vfcommon/install_node_modules
       - vfcommon/lint_source
+      - vfcommon/lint_report
       - vfcommon/build
+      - sonarcloud/scan
 
 workflows:
   test-and-release:
