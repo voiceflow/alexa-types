@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   vfcommon: voiceflow/common@0.0.54
   sonarcloud: sonarsource/sonarcloud@1.0.2
+  validate-title: qventus/validate-title@0.0.4
 
 jobs:
   build-and-test:
@@ -16,6 +17,19 @@ jobs:
       - sonarcloud/scan
 
 workflows:
+  pr-checker:
+    jobs:
+      - validate-title/validate:
+          context: dev-test
+          regex: >-
+            $PR_REGEX
+          filters:
+            branches:
+              ignore:
+                - /env-.*/
+                - staging
+                - master
+
   test-and-release:
     jobs:
       - build-and-test:
